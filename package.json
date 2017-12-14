@@ -1,0 +1,34 @@
+{
+  "name": "space-merchant",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "connect-sequelize": "^2.0.2",
+    "cookie-parser": "^1.4.3",
+    "express-session": "^1.15.6",
+    "pg": "^7.4.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17",
+    "sequelize": "^4.28.1"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "client": "npm --prefix client start",
+    "dev": "concurrently \"nodemon --ignore client/ --inspect server.js\" \"npm run client\"",
+    "eject": "react-scripts eject",
+    "heroku-prebuild": "cd client/ && yarn install && yarn build; cd ../",
+    "seed": "node scripts/seedDB.js",
+    "start": "node server.js",
+    "test": "react-scripts test --env=jsdom",
+    "watch": "nodemon server.js"
+  },
+  "devDependencies": {
+    "chalk": "^2.3.0",
+    "concurrently": "^3.5.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "nodemon": "^1.12.7",
+    "prettier": "^1.9.2"
+  }
+}
