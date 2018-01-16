@@ -1,25 +1,48 @@
 .App {
   text-align: center;
+  background-color: #679;
+  height: 100vh;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  /*animation: App-logo-spin infinite 20s linear;*/
+  height: 190px;
+  width: 100%;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  position: absolute;
+  border-bottom: solid 1px #bcf;
 }
 
 .App-header {
   background-color: #222;
   height: 150px;
-  padding: 20px;
   color: white;
+  padding: 20px;
+}
+
+.App-header-color {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2f71aa+0,111f3d+100&0.75+0,0.95+26,1+42 */
+  background: linear-gradient(rgba(47,113,170,0.25) 0%, rgba(39,92,142,0.35) 26%, rgba(34,79,124,0.60) 42%, rgba(17,31,61,0.90) 100%);
+  height: 190px;
+  width: 100%;
+  margin-top: -20px;
+  margin-left: -20px;
+  z-index: 1;
+  position: absolute;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 3.5em;
+  position: relative;
+  z-index: 1;
+  top: 25%;
 }
 
 .App-intro {
   font-size: large;
+  margin-top: 2em;
 }
 
 @keyframes App-logo-spin {

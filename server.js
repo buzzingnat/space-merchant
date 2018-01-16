@@ -10,7 +10,7 @@ const Sequelize = require("sequelize");
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
-// const routes = require("./routes");
+const routes = require("./routes");
 
 // initalize sequelize with session store
 const SequelizeStore = require('connect-sequelize')(session),
@@ -20,12 +20,7 @@ const SequelizeStore = require('connect-sequelize')(session),
     };
 
 // create database, ensure 'postgres' in your package.json
-const db = new Sequelize(
-    "database",
-    "username",
-    "password", {
-        "dialect": "postgres"
-});
+const db = require('./models');
 
 // configure express
 const app = express();
@@ -33,12 +28,12 @@ const server = require('http').Server(app);
 const HOST = process.env.HOST || '0.0.0.0';
 const PORT = process.env.PORT || 3001;
 app.use(cookieParser());
-app.use(session({
+/*app.use(session({
   secret: process.env.COOKIE_SECRET,
   // link to database here
   store: new SequelizeStore(db, options, modelName),
   proxy: true // if you do SSL outside of node.
-}));
+})); */
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({extended: false}));
@@ -71,6 +66,6 @@ if (process.env.NODE_ENV === 'development') {
 // Start the API server
 const apiServerStart = () => {
   server.listen(PORT, HOST, function() {
-    console.log(`${chalk.underline.white(`express`)}: 🌎  ==> API Server now listening at ${HOST}:${PORT}`);
+    console.log(`${chalk.underline.yellow(`express`)}: 🌎  ==> API Server now listening at ${HOST}:${PORT}`);
   });
 }

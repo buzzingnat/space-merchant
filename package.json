@@ -10,7 +10,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",
-    "sequelize": "^4.28.1"
+    "sequelize": "^4.28.1",
+    "sequelize-cli": "^3.2.0"
   },
   "scripts": {
     "build": "react-scripts build",
