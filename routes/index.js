@@ -1,20 +1,11 @@
 const path = require("path");
 const router = require("express").Router();
-const models = require('../models/index');
+const userRoutes = require("./users");
+const todoRoutes = require("./todos");
 
 // API Routes
-router.route("/users")
-    .get(function (req, res) {
-    	// get all users
-    	res.json([]);
-    })
-    .post(function (req, res) {
-		models.User.create({
-		    email: req.body.email
-		}).then(function(user) {
-		    res.json(user);
-		});
-    });
+router.use("/api/users", userRoutes);
+router.use("/api/todos", todoRoutes);
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {
@@ -22,5 +13,3 @@ router.use(function(req, res) {
 });
 
 module.exports = router;
-
-

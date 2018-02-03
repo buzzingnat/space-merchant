@@ -10,7 +10,9 @@ const Sequelize = require("sequelize");
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+console.log('Requiring routes...');
 const routes = require("./routes");
+console.log('Routes are now required.');
 
 // initalize sequelize with session store
 const SequelizeStore = require('connect-sequelize')(session),
@@ -20,7 +22,7 @@ const SequelizeStore = require('connect-sequelize')(session),
     };
 
 // create database, ensure 'postgres' in your package.json
-const db = require('./models');
+const db = require('./db/models');
 
 // configure express
 const app = express();
@@ -42,7 +44,7 @@ app.use(bodyParser.json());
 // Serve up static assets
 app.use(express.static("client/build"));
 // Add routes, both API and view
-// app.use(routes);
+app.use(routes);
 
 // Connect to the Postgres DB
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/" + process.env.LOCAL_MONGO_DB, {useMongoClient: true})
@@ -54,7 +56,7 @@ app.use(express.static("client/build"));
 
 // TODO: REMOVE {force: true} ON DEPLOYMENT!!!!!
 if (process.env.NODE_ENV === 'development') {
-  db.sequelize.sync({force: true}).then(function() {
+  db.sequelize.sync({force: false}).then(function() {
     apiServerStart();
   });
 } else {

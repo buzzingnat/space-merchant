@@ -12,6 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       complete: {
+        defaultValue: false;
         type: Sequelize.BOOLEAN
       },
       UserId: {
@@ -19,10 +20,12 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
+        defaultValue: new Date(),
         type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
+        defaultValue: new Date(),
         type: Sequelize.DATE
       }
     });

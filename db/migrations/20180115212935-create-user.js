@@ -15,14 +15,17 @@ module.exports = {
         type: Sequelize.STRING
       },
       email: {
+        defaultValue: "default@default.net",
         type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
+        defaultValue: new Date(),
         type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
+        defaultValue: new Date(),
         type: Sequelize.DATE
       }
     });

@@ -52,6 +52,7 @@
 
 .App-intro {
   font-size: large;
+  margin-top: 2em;
 }
 
 .App-sample-list {
