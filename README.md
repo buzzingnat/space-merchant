@@ -10,14 +10,10 @@ You captain a space ship. Will you become rich or go bankrupt? Will you be extor
 - Express
 - PostgreSQL
 - Sequelize
-- Grunt
-- Gulp
 
 ### Frontend:
 - React
 - SASS/SCSS
-- PureCSS
-- FontAwesome Icons
 
 ## Notes about project initialization:
 1. use `create-react-app` to build root directory
